@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bashar Mohamed Omar — Data Engineering Portfolio</title>
+  <meta
+    name="description"
+    content="Personal engineering portfolio of Bashar Mohamed Omar, an engineer in development focused on Data Engineering."
+  />
+
+  <!-- Google Fonts: Manrope (Headings), Inter (Body), JetBrains Mono (Technical Metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Shared Portfolio Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function initializeThemeBeforePaint() {
+      try {
+        var STORAGE_KEY = 'portfolio-theme';
+        var savedTheme = localStorage.getItem(STORAGE_KEY);
+        var prefersDark =
+          window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme =
+          savedTheme === 'dark' || savedTheme === 'light'
+            ? savedTheme
+            : prefersDark
+            ? 'dark'
+            : 'light';
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.style.colorScheme = resolvedTheme;
+      } catch (err) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="app-root"></div>
+
+  <script>
+    const SITE_CONFIG = {
+      brand: {
+        name: 'Bashar Mohamed Omar',
+        tag: 'Data Engineering',
+        href: '#hero',
+        roleSummary: 'Personal engineering portfolio focused on Data Engineering.'
+      },
+      navigation: [
+        { label: 'Home', href: '#hero', id: 'hero' },
+        { label: 'Projects', href: '#projects', id: 'projects' },
+        { label: 'About', href: '#about', id: 'about' },
+        { label: 'Focus', href: '#focus', id: 'focus' },
+        { label: 'Credentials', href: '#credentials', id: 'credentials' },
+        { label: 'Learning & Notes', href: '#notes', id: 'notes' },
+        { label: 'Contact', href: '#contact', id: 'contact' }
+      ],
+      footerLinks: [
+        { label: 'Home', href: '#hero' },
+        { label: 'Projects', href: '#projects' },
+        { label: 'About', href: '#about' },
+        { label: 'Credentials', href: '#credentials' },
+        { label: 'Contact', href: '#contact' }
+      ],
+      hero: {
+        eyebrow: 'DATA ENGINEERING · PIPELINES · SYSTEMS',
+        headlinePrefix: 'Building reliable data pipelines.',
+        headlineAccent: 'Turning raw data into structured value.',
+        supportingParagraph:
+          'I’m an engineer in development with Data Engineering as my primary focus—exploring how data is ingested, transformed, stored in databases, and served reliably.',
+        primaryCta: {
+          label: 'Explore projects',
+          href: '#projects'
+        },
+        secondaryCta: {
+          label: 'About me',
+          href: '#about'
+        },
+        focusIndicators: [
+          { label: 'Primary focus: Data Engineering', isPrimary: true },
+          { label: 'Developing skills: SQL & Data Transformation', isPrimary: false },
+          { label: 'Developing skills: Python & Linux Foundations', isPrimary: false }
+        ]
+      },
+      projects: {
+        id: 'projects',
+        label: 'SELECTED WORK',
+        heading: 'Projects',
+        intro:
+          'Four planned Data Engineering projects spanning foundational ingestion through orchestrated cloud warehousing. Select any project to view its planned architecture, engineering scope, and documentation structure.',
+        items: [
+          {
+            title: 'Weather Data Pipeline',
+            level: 'Beginner',
+            status: 'Planned Project',
+            problem:
+              'Automates the scheduled collection, schema validation, and relational storage of public weather API observations so raw JSON responses become queryable historical tables.',
+            techStack: ['Python', 'SQL', 'PostgreSQL', 'REST APIs'],
+            href: 'projects/weather-data-pipeline.html'
+          },
+          {
+            title: 'Open Data ETL Workflow',
+            level: 'Beginner',
+            status: 'Planned Project',
+            problem:
+              'Extracts inconsistent public CSV and JSON datasets, standardizes data types and missing values, and loads clean records into structured relational tables.',
+            techStack: ['Python', 'pandas', 'SQL', 'SQLite'],
+            href: 'projects/open-data-etl.html'
+          },
+          {
+            title: 'Retail Sales Data Pipeline',
+            level: 'Intermediate',
+            status: 'Planned Project',
+            problem:
+              'Consolidates multi-source retail transaction logs and product catalogs into a star-schema warehouse model while catching duplicate orders and schema drift.',
+            techStack: ['Python', 'SQL', 'PostgreSQL', 'Data Modeling'],
+            href: 'projects/retail-data-pipeline.html'
+          },
+          {
+            title: 'Airflow & Snowflake ETL Pipeline',
+            level: 'Advanced',
+            status: 'Planned Project',
+            problem:
+              'Orchestrates an end-to-end scheduled data pipeline with task dependency management, automated data quality gates, and analytical warehouse loading in Snowflake.',
+            techStack: ['Apache Airflow', 'Snowflake', 'Python', 'SQL'],
+            href: 'projects/airflow-snowflake-etl.html'
+          }
+        ]
+      },
+      about: {
+        id: 'about',
+        label: 'ABOUT',
+        heading: 'An engineer in development.',
+        intro:
+          'I approach engineering with curiosity, structured problem-solving, and an interest in how data moves from raw sources into well-organized storage.',
+        columns: [
+          {
+            kicker: 'Engineering Mindset',
+            title: 'Learning From the Ground Up',
+            copy:
+              'Rather than rushing past fundamentals, I focus on understanding why data becomes inconsistent, how table schemas shape downstream queries, and how clear logic makes data workflows easier to maintain.'
+          },
+          {
+            kicker: 'Practical Approach',
+            title: 'Step-by-Step Problem Solving',
+            copy:
+              'When working through a technical problem, I break tasks into small, testable steps. I am steadily building practical competence in writing readable SQL and Python while learning the operating system and infrastructure basics that support data work.'
+          }
+        ]
+      },
+      focus: {
+        id: 'focus',
+        label: 'CURRENT DIRECTION',
+        heading: 'What I’m building toward',
+        intro:
+          'My learning centers on Data Engineering as my primary focus, supported by developing skills in databases, programming, and systems fundamentals.',
+        primaryDomain: {
+          id: 'focus-data-engineering',
+          kicker: 'Primary Focus',
+          title: 'Data Engineering',
+          description:
+            'Actively studying how raw data is ingested, cleaned, structured, and moved through repeatable pipeline stages so that downstream datasets remain accurate and usable.',
+          topics: [
+            { label: 'Data Ingestion & ETL/ELT', note: 'Core pipeline stages & workflow structure' },
+            { label: 'Data Cleaning & Quality', note: 'Validation checks, formatting & consistency' },
+            { label: 'Data Modeling Basics', note: 'Structuring tables for clarity and querying' }
+          ]
+        },
+        supportingDomains: [
+          {
+            id: 'focus-databases-transformation',
+            kicker: 'Supporting Skill Area',
+            title: 'SQL, Databases & Data Transformation',
+            description:
+              'Developing practical fluency in querying relational databases, joining and aggregating records, and reshaping structured and semi-structured data.',
+            topics: [
+              { label: 'SQL & Relational Databases', note: 'Queries, joins, aggregations & schema basics' },
+              { label: 'Data Transformation', note: 'Cleaning and restructuring raw records' }
+            ]
+          },
+          {
+            id: 'focus-python-systems',
+            kicker: 'Supporting Skill Area',
+            title: 'Python, Automation & Systems Foundations',
+            description:
+              'Building foundational skills in Python scripting, Linux command-line workflows, version control, and the cloud and distributed concepts used in data infrastructure.',
+            topics: [
+              { label: 'Python & Scripting', note: 'Data handling, file processing & automation' },
+              { label: 'Systems & Cloud Basics', note: 'Linux CLI, Git & core infrastructure concepts' }
+            ]
+          }
+        ]
+      },
+      credentials: {
+        id: 'credentials',
+        label: 'BACKGROUND',
+        heading: 'Education & Certifications',
+        intro:
+          'Academic grounding in computer science alongside structured certifications and technical coursework in data engineering.',
+        // Update status to "Graduated" and set graduationDate once your degree is formally conferred.
+        education: [
+          {
+            degree: 'Bachelor of Science in Computer Science (Undergraduate Studies)',
+            institution: 'University of Kigali · Kigali, Rwanda',
+            status: 'In Progress — Final Year Undergraduate',
+            timeline: '[PLACEHOLDER: Expected Graduation Year — e.g., 2026]',
+            summary:
+              'Undergraduate computer science program covering programming fundamentals, relational database systems, software architecture, and computer networks.'
+          }
+        ],
+        // Earned and in-progress certifications. Clicking any card opens the accessible detail modal.
+        certifications: [
+          {
+            id: 'cert-datacamp-de',
+            name: '[PLACEHOLDER: Data Engineer Certification — e.g., DataCamp Data Engineer]',
+            issuer: 'DataCamp (or Issuing Organization)',
+            status: 'In Progress / Planned',
+            dateEarned: '[PLACEHOLDER: Date Earned — Not yet completed]',
+            credentialId: '[PLACEHOLDER: Credential ID will be added upon completion]',
+            description:
+              'Covers relational database design, SQL queries, Python data processing, and building automated ETL pipelines.',
+            imageUrl: '',
+            imagePlaceholderNote:
+              '[PLACEHOLDER: Certificate preview image (e.g., assets/certificates/datacamp-de.png) will be displayed here once earned.]',
+            // Leave verificationUrl empty ('') if no official verification link exists yet; set a full https:// URL to display the Verify button.
+            verificationUrl: ''
+          },
+          {
+            id: 'cert-cloud-sql',
+            name: '[PLACEHOLDER: Additional Data / Cloud Certification]',
+            issuer: '[PLACEHOLDER: Issuing Organization]',
+            status: 'Planned',
+            dateEarned: '[PLACEHOLDER: Date Earned]',
+            credentialId: '[PLACEHOLDER: Credential ID]',
+            description:
+              'Reserved slot for a verified cloud data warehousing or database engineering certification. Replace this placeholder in SITE_CONFIG.credentials.certifications when earned.',
+            imageUrl: '',
+            imagePlaceholderNote:
+              '[PLACEHOLDER: Certificate image preview will appear here once configured.]',
+            verificationUrl: ''
+          }
+        ],
+        courses: [
+          {
+            title: 'Data Engineering Career Track (Coursework in Progress)',
+            provider: 'DataCamp',
+            status: 'Active Study',
+            focus: 'SQL, Python for Data Engineering, Relational Databases, and ETL Pipeline Foundations'
+          },
+          {
+            title: 'Relational Databases, SQL & Python Scripting',
+            provider: 'Academic & Self-Directed Technical Training',
+            status: 'Ongoing',
+            focus: 'Schema design, data normalization, file parsing, and Linux command-line automation'
+          }
+        ]
+      },
+      notes: {
+        id: 'notes',
+        label: 'LEARNING IN PUBLIC',
+        heading: 'Notes from the engineering journey',
+        intro:
+          'A dedicated space for documenting what I learn while studying data systems and working through practical builds.',
+        body:
+          'Technical notes, SQL and data transformation takeaways, and project retrospectives will be published here as I develop them.'
+      },
+      // Replace the placeholder email and profile URLs below with your real details.
+      contact: {
+        id: 'contact',
+        label: 'GET IN TOUCH',
+        heading: "Let's connect.",
+        intro:
+          'Open to connecting about Data Engineering, learning resources, and entry-level engineering opportunities.',
+        methods: [
+          {
+            type: 'email',
+            label: 'Email',
+            value: 'YOUR_EMAIL@example.com',
+            href: 'mailto:YOUR_EMAIL@example.com',
+            external: false
+          },
+          {
+            type: 'github',
+            label: 'GitHub',
+            value: 'github.com/YOUR_GITHUB_USERNAME',
+            href: 'https://github.com/YOUR_GITHUB_USERNAME',
+            external: true
+          },
+          {
+            type: 'linkedin',
+            label: 'LinkedIn',
+            value: 'linkedin.com/in/YOUR_LINKEDIN_HANDLE',
+            href: 'https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE',
+            external: true
+          }
+        ]
+      }
+    };
+
+    function ThemeToggle(buttonIdSuffix) {
+      const currentTheme =
+        document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const isDark = currentTheme === 'dark';
+
+      return `
+        <button
+          type="button"
+          id="theme-toggle-${buttonIdSuffix}"
+          class="theme-toggle-btn js-theme-toggle"
+          data-theme-toggle
+          aria-pressed="${isDark ? 'true' : 'false'}"
+          aria-label="Switch color theme. Current theme is ${isDark ? 'dark' : 'light'}."
+          title="Toggle light or dark color theme"
+        >
+          <span class="js-theme-icon" aria-hidden="true" style="display:inline-flex;align-items:center;">
+            ${getThemeIconSvg(currentTheme)}
+          </span>
+          <span class="js-theme-label">${isDark ? 'Dark' : 'Light'}</span>
+        </button>
+      `;
+    }
+
+    function getThemeIconSvg(theme) {
+      if (theme === 'dark') {
+        return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+      }
+      return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    }
+
+    function getContactIconSvg(type) {
+      if (type === 'email') {
+        return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`;
+      }
+      if (type === 'github') {
+        return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>`;
+      }
+      if (type === 'linkedin') {
+        return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`;
+      }
+      return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`;
+    }
+
+    function SiteNavigation(items, isMobile) {
+      if (isMobile) {
+        return `
+          <nav aria-label="Mobile primary navigation">
+            <ul class="mobile-nav-list">
+              ${items
+                .map(
+                  (item, idx) => `
+                <li>
+                  <a
+                    href="${item.href}"
+                    class="mobile-nav-link js-mobile-nav-link"
+                    data-section-target="${item.id}"
+                    ${idx === 0 ? 'aria-current="location"' : ''}
+                  >
+                    <span>${item.label}</span>
+                    <span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span>
+                  </a>
+                </li>
+              `
+                )
+                .join('')}
+            </ul>
+          </nav>
+        `;
+      }
+
+      return `
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            ${items
+              .map(
+                (item, idx) => `
+              <li>
+                <a
+                  href="${item.href}"
+                  class="nav-link js-nav-link"
+                  data-section-target="${item.id}"
+                  ${idx === 0 ? 'aria-current="location"' : ''}
+                >
+                  ${item.label}
+                </a>
+              </li>
+            `
+              )
+              .join('')}
+          </ul>
+        </nav>
+      `;
+    }
+
+    function SiteHeader(config) {
+      return `
+        <header id="site-header" class="site-header">
+          <div class="site-container header-inner">
+            <a href="${config.brand.href}" class="brand-wordmark js-brand-link" data-section-target="hero" aria-label="${config.brand.name} — ${config.brand.tag} — Home">
+              <span class="brand-indicator" aria-hidden="true"></span>
+              <span>${config.brand.name}</span>
+              <span class="brand-tag">${config.brand.tag}</span>
+            </a>
+
+            <div class="desktop-nav-wrapper">
+              ${SiteNavigation(config.navigation, false)}
+              ${ThemeToggle('desktop')}
+            </div>
+
+            <div class="mobile-controls">
+              ${ThemeToggle('mobile')}
+              <button
+                type="button"
+                id="mobile-menu-toggle"
+                class="mobile-menu-btn"
+                aria-expanded="false"
+                aria-controls="mobile-navigation-panel"
+                aria-label="Open navigation menu"
+              >
+                <svg id="mobile-menu-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <span id="mobile-menu-label">Menu</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="mobile-navigation-panel" class="mobile-nav-panel" role="region" aria-label="Mobile menu">
+            <div class="site-container">
+              ${SiteNavigation(config.navigation, true)}
+            </div>
+          </div>
+        </header>
+      `;
+    }
+
+    function HeroSection(hero) {
+      return `
+        <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+          <div class="site-container">
+            <div class="eyebrow-label">${hero.eyebrow}</div>
+            <h1 id="hero-heading" class="heading-hero">
+              ${hero.headlinePrefix}
+              <span class="hero-accent-text">${hero.headlineAccent}</span>
+            </h1>
+            <p class="lead-paragraph">
+              ${hero.supportingParagraph}
+            </p>
+
+            <div class="cta-group">
+              <a href="${hero.primaryCta.href}" class="btn-primary">
+                <span>${hero.primaryCta.label}</span>
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href="${hero.secondaryCta.href}" class="btn-secondary">
+                <span>${hero.secondaryCta.label}</span>
+              </a>
+            </div>
+
+            <div class="focus-indicators-bar" role="list" aria-label="Engineering focus areas">
+              ${hero.focusIndicators
+                .map(
+                  (chip) => `
+                <div role="listitem" class="focus-chip ${chip.isPrimary ? 'focus-chip--primary' : ''}">
+                  ${chip.isPrimary ? '<span class="focus-chip-dot" aria-hidden="true"></span>' : ''}
+                  <span>${chip.label}</span>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function ProjectsSection(projects) {
+      return `
+        <section id="${projects.id}" class="portfolio-section" aria-labelledby="projects-heading">
+          <div class="site-container">
+            <div class="section-header-bar">
+              <div class="eyebrow-label">${projects.label}</div>
+              <h2 id="projects-heading" class="heading-section">${projects.heading}</h2>
+              <p class="section-intro">${projects.intro}</p>
+            </div>
+
+            <div class="grid-2-col" role="region" aria-label="Planned Data Engineering projects">
+              ${projects.items
+                .map(
+                  (project) => `
+                <article class="project-card">
+                  <div>
+                    <div class="slot-meta-row">
+                      <span class="level-badge">Level: ${project.level}</span>
+                      <span class="planned-badge">${project.status}</span>
+                    </div>
+                    <h3 class="heading-card">${project.title}</h3>
+                    <p class="slot-copy">${project.problem}</p>
+                    <ul class="tech-badge-list" aria-label="${project.title} technology stack">
+                      ${project.techStack
+                        .map((tech) => `<li class="tech-badge">${tech}</li>`)
+                        .join('')}
+                    </ul>
+                  </div>
+
+                  <div class="project-card-footer">
+                    <span class="editorial-item-note">Case Study &amp; Architecture</span>
+                    <a
+                      href="${project.href}"
+                      class="project-card-link"
+                      aria-label="View project details for ${project.title}"
+                    >
+                      <span>View project</span>
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </article>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function AboutSection(about) {
+      return `
+        <section id="${about.id}" class="portfolio-section" aria-labelledby="about-heading">
+          <div class="site-container">
+            <div class="section-header-bar">
+              <div class="eyebrow-label">${about.label}</div>
+              <h2 id="about-heading" class="heading-section">${about.heading}</h2>
+              <p class="section-intro">${about.intro}</p>
+            </div>
+
+            <div class="about-grid">
+              ${about.columns
+                .map(
+                  (col) => `
+                <div class="editorial-column">
+                  <p class="slot-kicker">${col.kicker}</p>
+                  <h3 class="heading-card">${col.title}</h3>
+                  <p class="slot-copy">${col.copy}</p>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function FocusSection(focus) {
+      const primary = focus.primaryDomain;
+      return `
+        <section id="${focus.id}" class="portfolio-section" aria-labelledby="focus-heading">
+          <div class="site-container">
+            <div class="section-header-bar">
+              <div class="eyebrow-label">${focus.label}</div>
+              <h2 id="focus-heading" class="heading-section">${focus.heading}</h2>
+              <p class="section-intro">${focus.intro}</p>
+            </div>
+
+            <div class="focus-layout">
+              <article id="${primary.id}" class="editorial-slot editorial-slot--primary-focus">
+                <div>
+                  <p class="slot-kicker slot-kicker--accent">${primary.kicker}</p>
+                  <h3 class="heading-card">${primary.title}</h3>
+                  <p class="slot-copy">${primary.description}</p>
+                </div>
+
+                <ul class="editorial-divider-list" aria-label="${primary.title} focus areas">
+                  ${primary.topics
+                    .map(
+                      (topic) => `
+                    <li class="editorial-divider-item">
+                      <span class="editorial-item-label">${topic.label}</span>
+                      <span class="editorial-item-note">${topic.note}</span>
+                    </li>
+                  `
+                    )
+                    .join('')}
+                </ul>
+              </article>
+
+              <div class="focus-supporting-stack">
+                ${focus.supportingDomains
+                  .map(
+                    (domain) => `
+                  <article id="${domain.id}" class="editorial-slot editorial-slot--quiet">
+                    <div>
+                      <p class="slot-kicker">${domain.kicker}</p>
+                      <h3 class="heading-card">${domain.title}</h3>
+                      <p class="slot-copy">${domain.description}</p>
+                    </div>
+
+                    <ul class="editorial-divider-list" aria-label="${domain.title} developing skills">
+                      ${domain.topics
+                        .map(
+                          (topic) => `
+                        <li class="editorial-divider-item">
+                          <span class="editorial-item-label">${topic.label}</span>
+                          <span class="editorial-item-note">${topic.note}</span>
+                        </li>
+                      `
+                        )
+                        .join('')}
+                    </ul>
+                  </article>
+                `
+                  )
+                  .join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function CredentialsSection(credentials) {
+      return `
+        <section id="${credentials.id}" class="portfolio-section" aria-labelledby="credentials-heading">
+          <div class="site-container">
+            <div class="section-header-bar">
+              <div class="eyebrow-label">${credentials.label}</div>
+              <h2 id="credentials-heading" class="heading-section">${credentials.heading}</h2>
+              <p class="section-intro">${credentials.intro}</p>
+            </div>
+
+            <div class="credentials-category-stack">
+              <!-- Category 1: Education -->
+              <div class="credentials-category-block" aria-labelledby="cat-education-heading">
+                <div class="credentials-category-header">
+                  <h3 id="cat-education-heading" class="heading-card">1. Education</h3>
+                  <span class="editorial-item-note">Academic Degree Program</span>
+                </div>
+                <div class="grid-2-col">
+                  ${credentials.education
+                    .map(
+                      (edu) => `
+                    <article class="credential-card">
+                      <div>
+                        <div class="slot-meta-row">
+                          <span class="level-badge">${edu.status}</span>
+                          <span class="planned-badge">${edu.timeline}</span>
+                        </div>
+                        <h4 class="heading-card" style="font-size:1.08rem;">${edu.degree}</h4>
+                        <p class="credential-issuer">${edu.institution}</p>
+                        <p class="slot-copy">${edu.summary}</p>
+                      </div>
+                    </article>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+
+              <!-- Category 2: Certifications (Interactive Modal Triggers) -->
+              <div class="credentials-category-block" aria-labelledby="cat-certifications-heading">
+                <div class="credentials-category-header">
+                  <h3 id="cat-certifications-heading" class="heading-card">2. Certifications</h3>
+                  <span class="editorial-item-note">Select a certification card to view credential details</span>
+                </div>
+                <div class="grid-2-col">
+                  ${credentials.certifications
+                    .map(
+                      (cert) => `
+                    <article class="credential-card credential-card--interactive">
+                      <div>
+                        <div class="slot-meta-row">
+                          <span class="planned-badge">${cert.status}</span>
+                          <span class="editorial-item-note">${cert.dateEarned}</span>
+                        </div>
+                        <h4 class="heading-card" style="font-size:1.08rem;">${cert.name}</h4>
+                        <p class="credential-issuer">${cert.issuer}</p>
+                        <p class="slot-copy">${cert.description}</p>
+                      </div>
+                      <button
+                        type="button"
+                        class="credential-trigger-btn js-cert-modal-trigger"
+                        data-cert-id="${cert.id}"
+                        aria-haspopup="dialog"
+                        aria-controls="certification-modal"
+                      >
+                        <span>View credential details</span>
+                        <span aria-hidden="true">→</span>
+                      </button>
+                    </article>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+
+              <!-- Category 3: Courses & Technical Training -->
+              <div class="credentials-category-block" aria-labelledby="cat-courses-heading">
+                <div class="credentials-category-header">
+                  <h3 id="cat-courses-heading" class="heading-card">3. Courses &amp; Technical Training</h3>
+                  <span class="editorial-item-note">Structured Coursework &amp; Skill Development</span>
+                </div>
+                <div class="grid-2-col">
+                  ${credentials.courses
+                    .map(
+                      (course) => `
+                    <article class="credential-card">
+                      <div>
+                        <div class="slot-meta-row">
+                          <span class="slot-kicker" style="margin:0;">${course.provider}</span>
+                          <span class="planned-badge">${course.status}</span>
+                        </div>
+                        <h4 class="heading-card" style="font-size:1.08rem;">${course.title}</h4>
+                        <p class="slot-copy">Focus areas: ${course.focus}</p>
+                      </div>
+                    </article>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function CertificationModal() {
+      return `
+        <div
+          id="certification-modal-backdrop"
+          class="modal-backdrop"
+          hidden
+        >
+          <div
+            id="certification-modal"
+            class="modal-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cert-modal-title"
+            aria-describedby="cert-modal-description"
+            tabindex="-1"
+          >
+            <div class="modal-header">
+              <div>
+                <p id="cert-modal-status" class="slot-kicker slot-kicker--accent" style="margin-bottom:0.25rem;"></p>
+                <h3 id="cert-modal-title" class="heading-card"></h3>
+              </div>
+              <button
+                type="button"
+                id="cert-modal-close"
+                class="modal-close-btn"
+                aria-label="Close certification details modal"
+              >
+                <span aria-hidden="true">✕</span>
+                <span>Close</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <p id="cert-modal-description" class="slot-copy" style="margin:0;"></p>
+
+              <dl class="modal-meta-dl">
+                <div>
+                  <dt>Issuing Organization</dt>
+                  <dd id="cert-modal-issuer"></dd>
+                </div>
+                <div>
+                  <dt>Date Earned / Status</dt>
+                  <dd id="cert-modal-date"></dd>
+                </div>
+                <div style="grid-column: 1 / -1;">
+                  <dt>Credential ID</dt>
+                  <dd id="cert-modal-credential-id" style="font-family:var(--font-mono);font-size:var(--text-xs);"></dd>
+                </div>
+              </dl>
+
+              <div id="cert-modal-preview" class="modal-preview-box" aria-label="Certificate preview area"></div>
+            </div>
+
+            <div class="modal-footer">
+              <span class="editorial-item-note">Press Escape or click outside to close</span>
+              <div id="cert-modal-verify-container"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function NotesSection(notes) {
+      return `
+        <section id="${notes.id}" class="portfolio-section" aria-labelledby="notes-heading">
+          <div class="site-container">
+            <div class="section-header-bar">
+              <div class="eyebrow-label">${notes.label}</div>
+              <h2 id="notes-heading" class="heading-section">${notes.heading}</h2>
+              <p class="section-intro">${notes.intro}</p>
+            </div>
+
+            <div class="editorial-note-box">
+              <p>${notes.body}</p>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function ContactSection(contact) {
+      return `
+        <section id="${contact.id}" class="portfolio-section portfolio-section--last" aria-labelledby="contact-heading">
+          <div class="site-container">
+            <div class="section-header-bar">
+              <div class="eyebrow-label">${contact.label}</div>
+              <h2 id="contact-heading" class="heading-section">${contact.heading}</h2>
+              <p class="section-intro">${contact.intro}</p>
+            </div>
+
+            <div class="contact-links-grid" role="list" aria-label="Professional contact links">
+              ${contact.methods
+                .map(
+                  (method) => `
+                <a
+                  role="listitem"
+                  href="${method.href}"
+                  class="contact-method-card"
+                  ${method.external ? 'target="_blank" rel="noopener noreferrer"' : ''}
+                >
+                  <span class="contact-icon-box">
+                    ${getContactIconSvg(method.type)}
+                  </span>
+                  <div>
+                    <h3 class="contact-method-label">${method.label}</h3>
+                    <p class="contact-method-value">${method.value}</p>
+                  </div>
+                </a>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function SiteFooter(config) {
+      const currentYear = new Date().getFullYear();
+      return `
+        <footer id="site-footer" class="site-footer">
+          <div class="site-container">
+            <div class="footer-grid">
+              <div>
+                <a href="${config.brand.href}" class="brand-wordmark js-brand-link" data-section-target="hero">
+                  <span class="brand-indicator" aria-hidden="true"></span>
+                  <span>${config.brand.name}</span>
+                </a>
+                <p style="font-size:var(--text-sm);color:var(--text-secondary);max-width:46ch;margin:0.65rem 0 0 0;">
+                  ${config.brand.roleSummary}
+                </p>
+              </div>
+
+              <nav aria-label="Footer quick links" class="footer-links">
+                ${config.footerLinks
+                  .map(
+                    (item) => `
+                  <a href="${item.href}" class="nav-link" style="padding:2px 0;">
+                    ${item.label}
+                  </a>
+                `
+                  )
+                  .join('')}
+              </nav>
+            </div>
+
+            <div class="footer-bottom">
+              <span>&copy; ${currentYear} ${config.brand.name}. All rights reserved.</span>
+              <span>Data Engineering Portfolio</span>
+            </div>
+          </div>
+        </footer>
+      `;
+    }
+
+    function renderPortfolioApp() {
+      const root = document.getElementById('app-root');
+      if (!root) return;
+
+      root.innerHTML = `
+        ${SiteHeader(SITE_CONFIG)}
+        <main id="main-content" tabindex="-1">
+          ${HeroSection(SITE_CONFIG.hero)}
+          ${ProjectsSection(SITE_CONFIG.projects)}
+          ${AboutSection(SITE_CONFIG.about)}
+          ${FocusSection(SITE_CONFIG.focus)}
+          ${CredentialsSection(SITE_CONFIG.credentials)}
+          ${NotesSection(SITE_CONFIG.notes)}
+          ${ContactSection(SITE_CONFIG.contact)}
+        </main>
+        ${SiteFooter(SITE_CONFIG)}
+        ${CertificationModal()}
+      `;
+
+      bindThemeToggles();
+      bindMobileNavigation();
+      bindScrollSpyNavigation();
+      bindCertificationModal();
+    }
+
+    function bindThemeToggles() {
+      const toggleButtons = document.querySelectorAll('[data-theme-toggle]');
+
+      function applyTheme(newTheme, persist) {
+        document.documentElement.setAttribute('data-theme', newTheme);
+        document.documentElement.style.colorScheme = newTheme;
+
+        if (persist) {
+          try {
+            localStorage.setItem('portfolio-theme', newTheme);
+          } catch (e) {
+            // Ignore storage errors in restricted environments
+          }
+        }
+
+        const isDark = newTheme === 'dark';
+        toggleButtons.forEach((btn) => {
+          btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+          btn.setAttribute(
+            'aria-label',
+            `Switch color theme. Current theme is ${isDark ? 'dark' : 'light'}.`
+          );
+          const iconSpan = btn.querySelector('.js-theme-icon');
+          const labelSpan = btn.querySelector('.js-theme-label');
+          if (iconSpan) iconSpan.innerHTML = getThemeIconSvg(newTheme);
+          if (labelSpan) labelSpan.textContent = isDark ? 'Dark' : 'Light';
+        });
+      }
+
+      toggleButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const current =
+            document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next, true);
+        });
+      });
+    }
+
+    function bindMobileNavigation() {
+      const menuBtn = document.getElementById('mobile-menu-toggle');
+      const menuPanel = document.getElementById('mobile-navigation-panel');
+      const menuLabel = document.getElementById('mobile-menu-label');
+      const mobileLinks = document.querySelectorAll('.js-mobile-nav-link');
+
+      if (!menuBtn || !menuPanel) return;
+
+      function setMenuOpen(isOpen) {
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuBtn.setAttribute(
+          'aria-label',
+          isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+        if (menuLabel) {
+          menuLabel.textContent = isOpen ? 'Close' : 'Menu';
+        }
+        menuPanel.classList.toggle('is-open', isOpen);
+      }
+
+      menuBtn.addEventListener('click', () => {
+        const currentlyOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+        setMenuOpen(!currentlyOpen);
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          setMenuOpen(false);
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+          setMenuOpen(false);
+          menuBtn.focus();
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        const header = document.getElementById('site-header');
+        if (
+          header &&
+          !header.contains(event.target) &&
+          menuBtn.getAttribute('aria-expanded') === 'true'
+        ) {
+          setMenuOpen(false);
+        }
+      });
+    }
+
+    function bindScrollSpyNavigation() {
+      const trackedIds = SITE_CONFIG.navigation.map((item) => item.id);
+      const trackedSections = trackedIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      const allNavLinks = document.querySelectorAll('.js-nav-link, .js-mobile-nav-link');
+      const brandLinks = document.querySelectorAll('.js-brand-link');
+
+      function setActiveSection(sectionId) {
+        if (!sectionId || !trackedIds.includes(sectionId)) return;
+        allNavLinks.forEach((link) => {
+          if (link.getAttribute('data-section-target') === sectionId) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      function evaluateScrollPosition() {
+        if (!trackedSections.length) return;
+
+        const scrollY = window.scrollY || window.pageYOffset;
+        const viewportHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        if (scrollY + viewportHeight >= documentHeight - 24) {
+          setActiveSection(trackedIds[trackedIds.length - 1]);
+          return;
+        }
+
+        const activationOffset = 140;
+        let resolvedId = trackedIds[0];
+
+        for (let i = 0; i < trackedSections.length; i++) {
+          const rect = trackedSections[i].getBoundingClientRect();
+          if (rect.top <= activationOffset) {
+            resolvedId = trackedSections[i].id;
+          } else {
+            break;
+          }
+        }
+
+        setActiveSection(resolvedId);
+      }
+
+      allNavLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-section-target');
+          if (targetId) setActiveSection(targetId);
+        });
+      });
+
+      brandLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          setActiveSection('hero');
+        });
+      });
+
+      window.addEventListener('scroll', evaluateScrollPosition, { passive: true });
+      window.addEventListener('resize', evaluateScrollPosition, { passive: true });
+      window.addEventListener('hashchange', () => {
+        const hashId = window.location.hash.replace('#', '');
+        if (trackedIds.includes(hashId)) {
+          setActiveSection(hashId);
+        }
+      });
+
+      evaluateScrollPosition();
+    }
+
+    function bindCertificationModal() {
+      const backdrop = document.getElementById('certification-modal-backdrop');
+      const dialog = document.getElementById('certification-modal');
+      const closeBtn = document.getElementById('cert-modal-close');
+      const triggers = document.querySelectorAll('.js-cert-modal-trigger');
+      const mainContent = document.getElementById('main-content');
+      const siteHeader = document.getElementById('site-header');
+      const siteFooter = document.getElementById('site-footer');
+
+      if (!backdrop || !dialog || !closeBtn) return;
+
+      let lastFocusedTrigger = null;
+
+      function setBackgroundInert(isInert) {
+        [mainContent, siteHeader, siteFooter].forEach((el) => {
+          if (!el) return;
+          if (isInert) {
+            el.setAttribute('inert', '');
+            el.setAttribute('aria-hidden', 'true');
+          } else {
+            el.removeAttribute('inert');
+            el.removeAttribute('aria-hidden');
+          }
+        });
+      }
+
+      function openModal(certId, triggerEl) {
+        const cert = SITE_CONFIG.credentials.certifications.find((c) => c.id === certId);
+        if (!cert) return;
+
+        lastFocusedTrigger = triggerEl || document.activeElement;
+
+        document.getElementById('cert-modal-status').textContent = cert.status;
+        document.getElementById('cert-modal-title').textContent = cert.name;
+        document.getElementById('cert-modal-description').textContent = cert.description;
+        document.getElementById('cert-modal-issuer').textContent = cert.issuer;
+        document.getElementById('cert-modal-date').textContent = cert.dateEarned;
+        document.getElementById('cert-modal-credential-id').textContent = cert.credentialId;
+
+        const previewEl = document.getElementById('cert-modal-preview');
+        if (cert.imageUrl && cert.imageUrl.trim() !== '') {
+          previewEl.innerHTML = `<img src="${cert.imageUrl}" alt="Certificate preview for ${cert.name}" />`;
+        } else {
+          previewEl.innerHTML = `<p class="editorial-item-note" style="margin:0;">${cert.imagePlaceholderNote}</p>`;
+        }
+
+        const verifyContainer = document.getElementById('cert-modal-verify-container');
+        if (cert.verificationUrl && cert.verificationUrl.trim() !== '') {
+          verifyContainer.innerHTML = `
+            <a
+              href="${cert.verificationUrl}"
+              class="btn-primary"
+              style="padding:8px 14px;font-size:var(--text-xs);"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Verify credential</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          `;
+        } else {
+          verifyContainer.innerHTML = `
+            <span class="planned-badge">Verification URL pending completion</span>
+          `;
+        }
+
+        backdrop.removeAttribute('hidden');
+        document.body.classList.add('modal-open');
+        setBackgroundInert(true);
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        if (backdrop.hasAttribute('hidden')) return;
+        backdrop.setAttribute('hidden', '');
+        document.body.classList.remove('modal-open');
+        setBackgroundInert(false);
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+          lastFocusedTrigger.focus();
+        }
+      }
+
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const certId = btn.getAttribute('data-cert-id');
+          openModal(certId, btn);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+
+      backdrop.addEventListener('click', (event) => {
+        if (event.target === backdrop) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (backdrop.hasAttribute('hidden')) return;
+
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeModal();
+          return;
+        }
+
+        if (event.key === 'Tab') {
+          const focusable = dialog.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    }
+
+    renderPortfolioApp();
+  </script>
+</body>
+</html>
