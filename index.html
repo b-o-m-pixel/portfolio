@@ -222,13 +222,10 @@
             name: 'Associate Data Engineer in SQL',
             issuer: 'DataCamp',
             status: 'Earned',
-            dateEarned: 'September 24, 2026',
-            credentialId: '',
+            dateEarned: '[PLACEHOLDER: Date Earned]',
+            credentialId: '[PLACEHOLDER: Credential ID if applicable]',
             description:
               'Demonstrates foundational proficiency in relational database schema design, complex querying, and managing data workflows using SQL.',
-            imageUrl: 'certifications/data_engineer/associate-data-engineer-in-sql.pdf',
-            imagePlaceholderNote:
-              '[PLACEHOLDER: Certificate preview image will be displayed here if added.]',
             verificationUrl: 'certifications/data_engineer/associate-data-engineer-in-sql.pdf'
           },
           {
@@ -236,13 +233,10 @@
             name: 'Data Engineer in Python',
             issuer: 'DataCamp',
             status: 'Earned',
-            dateEarned: 'October 19, 2026',
-            credentialId: '',
+            dateEarned: '[PLACEHOLDER: Date Earned]',
+            credentialId: '[PLACEHOLDER: Credential ID if applicable]',
             description:
               'Covers data processing, automation, and building reliable ETL pipelines using Python and its data engineering ecosystem.',
-            imageUrl: 'certifications/data_engineer/data_engineer_in_python_certificate.pdf',
-            imagePlaceholderNote:
-              '[PLACEHOLDER: Certificate preview image will be displayed here if added.]',
             verificationUrl: 'certifications/data_engineer/data_engineer_in_python_certificate.pdf'
           }
         ],
@@ -663,11 +657,11 @@
                 </div>
               </div>
 
-              <!-- Category 2: Certifications (Interactive Modal Triggers) -->
+              <!-- Category 2: Certifications -->
               <div class="credentials-category-block" aria-labelledby="cat-certifications-heading">
                 <div class="credentials-category-header">
                   <h3 id="cat-certifications-heading" class="heading-card">2. Certifications</h3>
-                  <span class="editorial-item-note">Select a certification card to view credential details</span>
+                  <span class="editorial-item-note">Select a certification card to view the official document</span>
                 </div>
                 <div class="grid-2-col">
                   ${credentials.certifications
@@ -690,7 +684,7 @@
                         aria-haspopup="dialog"
                         aria-controls="certification-modal"
                       >
-                        <span>View credential details</span>
+                        <span>View Certificate</span>
                         <span aria-hidden="true">→</span>
                       </button>
                     </article>
@@ -733,60 +727,17 @@
 
     function CertificationModal() {
       return `
-        <div
-          id="certification-modal-backdrop"
-          class="modal-backdrop"
-          hidden
-        >
-          <div
-            id="certification-modal"
-            class="modal-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="cert-modal-title"
-            aria-describedby="cert-modal-description"
-            tabindex="-1"
-          >
+        <div id="certification-modal-backdrop" class="modal-backdrop" hidden>
+          <div id="certification-modal" class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title" tabindex="-1">
             <div class="modal-header">
-              <div>
-                <p id="cert-modal-status" class="slot-kicker slot-kicker--accent" style="margin-bottom:0.25rem;"></p>
-                <h3 id="cert-modal-title" class="heading-card"></h3>
-              </div>
-              <button
-                type="button"
-                id="cert-modal-close"
-                class="modal-close-btn"
-                aria-label="Close certification details modal"
-              >
+              <h3 id="cert-modal-title" class="heading-card" style="margin:0;font-size:1.15rem;"></h3>
+              <button type="button" id="cert-modal-close" class="modal-close-btn" aria-label="Close certificate modal">
                 <span aria-hidden="true">✕</span>
                 <span>Close</span>
               </button>
             </div>
-
-            <div class="modal-body">
-              <p id="cert-modal-description" class="slot-copy" style="margin:0;"></p>
-
-              <dl class="modal-meta-dl">
-                <div>
-                  <dt>Issuing Organization</dt>
-                  <dd id="cert-modal-issuer"></dd>
-                </div>
-                <div>
-                  <dt>Date Earned / Status</dt>
-                  <dd id="cert-modal-date"></dd>
-                </div>
-                <div style="grid-column: 1 / -1;">
-                  <dt>Credential ID</dt>
-                  <dd id="cert-modal-credential-id" style="font-family:var(--font-mono);font-size:var(--text-xs);"></dd>
-                </div>
-              </dl>
-
-              <div id="cert-modal-preview" class="modal-preview-box" aria-label="Certificate preview area"></div>
-            </div>
-
-            <div class="modal-footer">
-              <span class="editorial-item-note">Press Escape or click outside to close</span>
-              <div id="cert-modal-verify-container"></div>
+            <div class="modal-body" id="cert-modal-document-container">
+              <!-- Iframe or Image injected here via JavaScript -->
             </div>
           </div>
         </div>
@@ -1103,40 +1054,24 @@
 
         lastFocusedTrigger = triggerEl || document.activeElement;
 
-        document.getElementById('cert-modal-status').textContent = cert.status;
+        // Set the modal title
         document.getElementById('cert-modal-title').textContent = cert.name;
-        document.getElementById('cert-modal-description').textContent = cert.description;
-        document.getElementById('cert-modal-issuer').textContent = cert.issuer;
-        document.getElementById('cert-modal-date').textContent = cert.dateEarned;
-        document.getElementById('cert-modal-credential-id').textContent = cert.credentialId;
 
-        const previewEl = document.getElementById('cert-modal-preview');
-        if (cert.imageUrl && cert.imageUrl.trim() !== '') {
-          previewEl.innerHTML = `<img src="${cert.imageUrl}" alt="Certificate preview for ${cert.name}" />`;
-        } else {
-          previewEl.innerHTML = `<p class="editorial-item-note" style="margin:0;">${cert.imagePlaceholderNote}</p>`;
-        }
+        // Inject the document into the modal body
+        const container = document.getElementById('cert-modal-document-container');
+        const docUrl = cert.verificationUrl || cert.imageUrl; // Prefer the PDF path, but support images
 
-        const verifyContainer = document.getElementById('cert-modal-verify-container');
-        if (cert.verificationUrl && cert.verificationUrl.trim() !== '') {
-          // If linking directly to a PDF, change the button text to make more sense to the user
-          const isPdf = cert.verificationUrl.toLowerCase().endsWith('.pdf');
-          verifyContainer.innerHTML = `
-            <a
-              href="${cert.verificationUrl}"
-              class="btn-primary"
-              style="padding:8px 14px;font-size:var(--text-xs);"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>${isPdf ? 'View Certificate' : 'Verify credential'}</span>
-              <span aria-hidden="true">↗</span>
-            </a>
-          `;
+        if (docUrl && docUrl.trim() !== '') {
+          if (docUrl.toLowerCase().endsWith('.pdf')) {
+            container.innerHTML = `<iframe src="${docUrl}" title="${cert.name} Certificate" class="document-frame"></iframe>`;
+          } else {
+            container.innerHTML = `<img src="${docUrl}" alt="${cert.name} Certificate" class="document-image" />`;
+          }
         } else {
-          verifyContainer.innerHTML = `
-            <span class="planned-badge">Verification URL pending completion</span>
-          `;
+          container.innerHTML = `
+            <div style="text-align:center; color:var(--text-secondary); font-family:var(--font-mono); font-size:var(--text-sm);">
+              Certificate document pending.
+            </div>`;
         }
 
         backdrop.removeAttribute('hidden');
@@ -1150,6 +1085,10 @@
         backdrop.setAttribute('hidden', '');
         document.body.classList.remove('modal-open');
         setBackgroundInert(false);
+        
+        // Clear the iframe immediately to free memory and stop it downloading in the background
+        document.getElementById('cert-modal-document-container').innerHTML = '';
+
         if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
           lastFocusedTrigger.focus();
         }
