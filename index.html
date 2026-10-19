@@ -76,7 +76,7 @@
         headlinePrefix: 'Building reliable data pipelines.',
         headlineAccent: 'Turning raw data into structured value.',
         supportingParagraph:
-          'I’m an engineer in development with Data Engineering as my primary focus exploring how data is ingested, transformed, stored in databases, and served reliably.',
+          'I’m an engineer in development with Data Engineering as my primary focus—exploring how data is ingested, transformed, stored in databases, and served reliably.',
         primaryCta: {
           label: 'Explore projects',
           href: '#projects'
@@ -206,7 +206,6 @@
         heading: 'Education & Certifications',
         intro:
           'Academic grounding in computer science alongside structured certifications and technical coursework in data engineering.',
-        // Update status to "Graduated" and set graduationDate once your degree is formally conferred.
         education: [
           {
             degree: 'Bachelor of Science in Computer Science (Undergraduate Studies)',
@@ -217,41 +216,39 @@
               'Undergraduate computer science program covering programming fundamentals, relational database systems, software architecture, and computer networks.'
           }
         ],
-        // Earned and in-progress certifications. Clicking any card opens the accessible detail modal.
         certifications: [
           {
-            id: 'cert-datacamp-de',
-            name: '[PLACEHOLDER: Data Engineer Certification — e.g., DataCamp Data Engineer]',
-            issuer: 'DataCamp (or Issuing Organization)',
-            status: 'In Progress / Planned',
-            dateEarned: '[PLACEHOLDER: Date Earned — Not yet completed]',
-            credentialId: '[PLACEHOLDER: Credential ID will be added upon completion]',
+            id: 'cert-datacamp-sql',
+            name: 'Associate Data Engineer in SQL',
+            issuer: 'DataCamp',
+            status: 'Earned',
+            dateEarned: 'September 24, 2026',
+            credentialId: '',
             description:
-              'Covers relational database design, SQL queries, Python data processing, and building automated ETL pipelines.',
+              'Demonstrates foundational proficiency in relational database schema design, complex querying, and managing data workflows using SQL.',
             imageUrl: '',
             imagePlaceholderNote:
-              '[PLACEHOLDER: Certificate preview image (e.g., assets/certificates/datacamp-de.png) will be displayed here once earned.]',
-            // Leave verificationUrl empty ('') if no official verification link exists yet; set a full https:// URL to display the Verify button.
-            verificationUrl: ''
+              '[PLACEHOLDER: Certificate preview image will be displayed here if added.]',
+            verificationUrl: 'certifications/data_engineer/associate-data-engineer-in-sql.pdf'
           },
           {
-            id: 'cert-cloud-sql',
-            name: '[PLACEHOLDER: Additional Data / Cloud Certification]',
-            issuer: '[PLACEHOLDER: Issuing Organization]',
-            status: 'Planned',
-            dateEarned: '[PLACEHOLDER: Date Earned]',
-            credentialId: '[PLACEHOLDER: Credential ID]',
+            id: 'cert-datacamp-python',
+            name: 'Data Engineer in Python',
+            issuer: 'DataCamp',
+            status: 'Earned',
+            dateEarned: 'October 19, 2026',
+            credentialId: '',
             description:
-              'Reserved slot for a verified cloud data warehousing or database engineering certification. Replace this placeholder in SITE_CONFIG.credentials.certifications when earned.',
+              'Covers data processing, automation, and building reliable ETL pipelines using Python and its data engineering ecosystem.',
             imageUrl: '',
             imagePlaceholderNote:
-              '[PLACEHOLDER: Certificate image preview will appear here once configured.]',
-            verificationUrl: ''
+              '[PLACEHOLDER: Certificate preview image will be displayed here if added.]',
+            verificationUrl: 'certifications/data_engineer/data_engineer_in_python_certificate.pdf'
           }
         ],
         courses: [
           {
-            title: 'Data Engineering Career Track (Coursework in Progress)',
+            title: 'Data Engineering Career Track',
             provider: 'DataCamp',
             status: 'Active Study',
             focus: 'SQL, Python for Data Engineering, Relational Databases, and ETL Pipeline Foundations'
@@ -273,7 +270,6 @@
         body:
           'Technical notes, SQL and data transformation takeaways, and project retrospectives will be published here as I develop them.'
       },
-      // Replace the placeholder email and profile URLs below with your real details.
       contact: {
         id: 'contact',
         label: 'GET IN TOUCH',
@@ -284,15 +280,15 @@
           {
             type: 'email',
             label: 'Email',
-            value: 'omarbashar01@gmail.com',
-            href: 'mailto:omarbashar01@gmail.com',
+            value: 'YOUR_EMAIL@example.com',
+            href: 'mailto:YOUR_EMAIL@example.com',
             external: false
           },
           {
             type: 'github',
             label: 'GitHub',
-            value: 'github.com/b-o-m-pixel',
-            href: 'https://github.com/b-o-m-pixel',
+            value: 'github.com/YOUR_GITHUB_USERNAME',
+            href: 'https://github.com/YOUR_GITHUB_USERNAME',
             external: true
           },
           {
@@ -1123,6 +1119,8 @@
 
         const verifyContainer = document.getElementById('cert-modal-verify-container');
         if (cert.verificationUrl && cert.verificationUrl.trim() !== '') {
+          // If linking directly to a PDF, change the button text to make more sense to the user
+          const isPdf = cert.verificationUrl.toLowerCase().endsWith('.pdf');
           verifyContainer.innerHTML = `
             <a
               href="${cert.verificationUrl}"
@@ -1131,7 +1129,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Verify credential</span>
+              <span>${isPdf ? 'View Certificate' : 'Verify credential'}</span>
               <span aria-hidden="true">↗</span>
             </a>
           `;
