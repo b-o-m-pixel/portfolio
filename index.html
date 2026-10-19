@@ -53,7 +53,7 @@
         name: 'Bashar Mohamed Omar',
         tag: 'Data Engineering',
         href: '#hero',
-        roleSummary: 'Personal engineering portfolio focused on Data Engineering.'
+        roleSummary: 'Personal engineering portfolio.'
       },
       navigation: [
         { label: 'Home', href: '#hero', id: 'hero' },
@@ -99,6 +99,15 @@
           'Four planned Data Engineering projects spanning foundational ingestion through orchestrated cloud warehousing. Select any project to view its planned architecture, engineering scope, and documentation structure.',
         items: [
           {
+            title: 'Open Data ETL Workflow',
+            level: 'Beginner',
+            status: 'Planned Project',
+            problem:
+              'Extracts inconsistent public CSV and JSON datasets, standardizes data types and missing values, and loads clean records into structured relational tables.',
+            techStack: ['Python', 'pandas', 'SQL', 'SQLite'],
+            href: 'projects/open-data-etl.html'
+          },
+          {
             title: 'Weather Data Pipeline',
             level: 'Beginner',
             status: 'Planned Project',
@@ -108,13 +117,22 @@
             href: 'projects/weather-data-pipeline.html'
           },
           {
-            title: 'Open Data ETL Workflow',
+            title: 'London Transport Data Analysis',
             level: 'Beginner',
             status: 'Planned Project',
             problem:
-              'Extracts inconsistent public CSV and JSON datasets, standardizes data types and missing values, and loads clean records into structured relational tables.',
-            techStack: ['Python', 'pandas', 'SQL', 'SQLite'],
-            href: 'projects/open-data-etl.html'
+              'Analyzes over a decade of Transport for London journey data using SQL to identify popular transport methods, explore usage patterns, and investigate changes in network activity.',
+            techStack: ['SQL', 'Data Warehousing', 'Snowflake'],
+            href: 'projects/london-transport-data-analysis.html'
+          },
+          {
+            title: 'Bank Marketing Data Cleaning',
+            level: 'Intermediate',
+            status: 'Completed Project',
+            problem:
+              'Cleans and standardizes bank marketing campaign data by splitting datasets, correcting values, converting data types, and exporting structured CSV files ready for downstream database ingestion.',
+            techStack: ['Python', 'pandas', 'Data Cleaning', 'CSV'],
+            href: 'https://www.datacamp.com/datalab/w/50fe93e5-0982-4d20-ba97-ffd96fcd3259/edit'
           },
           {
             title: 'Retail Sales Data Pipeline',
@@ -211,7 +229,7 @@
             degree: 'Bachelor of Science in Computer Science (Undergraduate Studies)',
             institution: 'University of Kigali · Kigali, Rwanda',
             status: 'In Progress — Final Year Undergraduate',
-            timeline: '[PLACEHOLDER: Expected Graduation Year — e.g., 2026]',
+            timeline: 'Expected Graduation Year 2026',
             summary:
               'Undergraduate computer science program covering programming fundamentals, relational database systems, software architecture, and computer networks.'
           }
@@ -222,8 +240,8 @@
             name: 'Associate Data Engineer in SQL',
             issuer: 'DataCamp',
             status: 'Earned',
-            dateEarned: '[PLACEHOLDER: Date Earned]',
-            credentialId: '[PLACEHOLDER: Credential ID if applicable]',
+            dateEarned: 'September 24, 2026',
+            credentialId: '',
             description:
               'Demonstrates foundational proficiency in relational database schema design, complex querying, and managing data workflows using SQL.',
             verificationUrl: 'certifications/data_engineer/associate-data-engineer-in-sql.pdf'
@@ -233,8 +251,8 @@
             name: 'Data Engineer in Python',
             issuer: 'DataCamp',
             status: 'Earned',
-            dateEarned: '[PLACEHOLDER: Date Earned]',
-            credentialId: '[PLACEHOLDER: Credential ID if applicable]',
+            dateEarned: 'October 19, 2026',
+            credentialId: '',
             description:
               'Covers data processing, automation, and building reliable ETL pipelines using Python and its data engineering ecosystem.',
             verificationUrl: 'certifications/data_engineer/data_engineer_in_python_certificate.pdf'
@@ -274,22 +292,22 @@
           {
             type: 'email',
             label: 'Email',
-            value: 'YOUR_EMAIL@example.com',
-            href: 'mailto:YOUR_EMAIL@example.com',
+            value: 'omarbashar01@gmail.com',
+            href: 'mailto:omarbashar01@gmail.com',
             external: false
           },
           {
             type: 'github',
             label: 'GitHub',
-            value: 'github.com/YOUR_GITHUB_USERNAME',
-            href: 'https://github.com/YOUR_GITHUB_USERNAME',
+            value: 'github.com/b-o-m-pixel',
+            href: 'https://github.com/b-o-m-pixel',
             external: true
           },
           {
             type: 'linkedin',
             label: 'LinkedIn',
-            value: 'linkedin.com/in/YOUR_LINKEDIN_HANDLE',
-            href: 'https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE',
+            value: 'linkedin.com/in/mohamed-omar-bashar-a59418314/',
+            href: 'https://www.linkedin.com/in/mohamed-omar-bashar-a59418314/',
             external: true
           }
         ]
