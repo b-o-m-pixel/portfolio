@@ -1130,3 +1130,195 @@ button:focus-visible,
   font-size: var(--text-xs);
   color: var(--text-secondary);
 }
+
+/* ==========================================================================
+   Increment 1.1: Project Status Badges
+   ========================================================================== */
+.completed-badge,
+.in-progress-badge,
+.unknown-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Light Theme Base Colors */
+.completed-badge {
+  background-color: rgba(34, 139, 34, 0.1);
+  color: #1a6b1a;
+}
+
+.in-progress-badge {
+  background-color: rgba(217, 119, 6, 0.1);
+  color: #b45309;
+}
+
+.unknown-badge {
+  background-color: rgba(100, 100, 100, 0.1);
+  color: #555;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] .completed-badge {
+  background-color: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+
+[data-theme="dark"] .in-progress-badge {
+  background-color: rgba(251, 191, 36, 0.15);
+  color: #fcd34d;
+}
+
+[data-theme="dark"] .unknown-badge {
+  background-color: rgba(156, 163, 175, 0.15);
+  color: #9ca3af;
+}
+
+/* ==========================================================================
+   Increment 1.1: Modal External Link
+   ========================================================================== */
+.modal-external-link-wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.modal-external-link {
+  display: inline-block;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.15s ease;
+}
+
+.modal-external-link:hover {
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Increment 3: Project Filters
+   ========================================================================== */
+.project-filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.filter-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filter-select {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.filter-select:hover {
+  border-color: var(--accent-primary);
+}
+
+.filter-select:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-color: var(--accent-primary);
+}
+
+.filter-count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.empty-state-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background-color: var(--surface-secondary);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.empty-state-box p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+}
+
+.project-coming-soon {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Project Detail Pages: Layout & Typography Utilities */
+.project-section-heading {
+  margin-bottom: 1rem;
+}
+
+.project-section-heading--spaced {
+  margin-top: 2.5rem;
+}
+
+.project-aside-group {
+  margin-bottom: 2rem;
+}
+
+.project-aside-heading {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-aside-value {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.placeholder-callout p {
+  margin: 0;
+}
+
+.contact-links-grid--single {
+  grid-template-columns: 1fr;
+  margin-top: 1rem;
+}

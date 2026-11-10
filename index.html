@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bashar Mohamed Omar — Data Engineering Portfolio</title>
-  <meta
-    name="description"
-    content="Personal engineering portfolio of Bashar Mohamed Omar, an engineer in development focused on Data Engineering."
-  />
-
-  <!-- Google Fonts: Manrope (Headings), Inter (Body), JetBrains Mono (Technical Metadata) -->
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bashar Mohamed Omar — Engineering Portfolio</title>
+   <meta
+     name="description"
+    content="Personal engineering portfolio of Bashar Mohamed Omar, featuring projects and learning across data engineering, software, systems, infrastructure, and cybersecurity."
+   />
+ 
+   <!-- Google Fonts: Manrope (Headings), Inter (Body), JetBrains Mono (Technical Metadata) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -49,37 +49,39 @@
 
   <script>
     const SITE_CONFIG = {
-      brand: {
-        name: 'Bashar Mohamed Omar',
-        tag: 'Data Engineering',
-        href: '#hero',
-        roleSummary: 'Personal engineering portfolio.'
-      },
+       brand: {
+         name: 'Bashar Mohamed Omar',
+         tag: 'Engineering Portfolio',
+         href: '#hero',
+         roleSummary: 'Personal engineering portfolio.'
+       },
       navigation: [
         { label: 'Home', href: '#hero', id: 'hero' },
         { label: 'Projects', href: '#projects', id: 'projects' },
+        { label: 'Skills', href: '#skills', id: 'skills' },
         { label: 'About', href: '#about', id: 'about' },
-        { label: 'Focus', href: '#focus', id: 'focus' },
         { label: 'Credentials', href: '#credentials', id: 'credentials' },
-        { label: 'Learning & Notes', href: '#notes', id: 'notes' },
+        { label: 'Learning', href: '#notes', id: 'notes' },
         { label: 'Contact', href: '#contact', id: 'contact' }
       ],
       footerLinks: [
         { label: 'Home', href: '#hero' },
         { label: 'Projects', href: '#projects' },
+        { label: 'Skills', href: '#skills' },
         { label: 'About', href: '#about' },
         { label: 'Credentials', href: '#credentials' },
+        { label: 'Learning', href: '#notes' },
         { label: 'Contact', href: '#contact' }
-      ],
-      hero: {
-        eyebrow: 'DATA ENGINEERING · PIPELINES · SYSTEMS',
-        headlinePrefix: 'Building reliable data pipelines.',
-        headlineAccent: 'Turning raw data into structured value.',
-        supportingParagraph:
-          'I’m an engineer in development with Data Engineering as my primary focus—exploring how data is ingested, transformed, stored in databases, and served reliably.',
-        primaryCta: {
-          label: 'Explore projects',
-          href: '#projects'
+       ],
+       hero: {
+        eyebrow: 'DATA · SOFTWARE · SYSTEMS · SECURITY',
+        headlinePrefix: 'Building systems.',
+        headlineAccent: 'Learning across disciplines.',
+         supportingParagraph:
+          'Developing practical engineering skills across data, software, infrastructure, and cybersecurity, with a focus on understanding how reliable systems are designed, built, and operated.',
+         primaryCta: {
+           label: 'Explore projects',
+           href: '#projects'
         },
         secondaryCta: {
           label: 'About me',
@@ -96,124 +98,212 @@
         label: 'SELECTED WORK',
         heading: 'Projects',
         intro:
-          'Four planned Data Engineering projects spanning foundational ingestion through orchestrated cloud warehousing. Select any project to view its planned architecture, engineering scope, and documentation structure.',
+          'A catalogue of engineering projects across data, software, systems, infrastructure, and cybersecurity. Explore available case studies and follow the development of ongoing and planned work.',
         items: [
+          // --- Data Engineering ---
           {
             title: 'Open Data ETL Workflow',
+            domain: 'Data Engineering',
+            tags: ['Data Cleaning', 'Relational Databases'],
             level: 'Beginner',
-            status: 'Planned Project',
+            status: 'Planned',
             problem:
-              'Extracts inconsistent public CSV and JSON datasets, standardizes data types and missing values, and loads clean records into structured relational tables.',
+              'A planned workflow that extracts inconsistent public CSV and JSON datasets, standardizes data types and missing values, and loads clean records into structured relational tables.',
             techStack: ['Python', 'pandas', 'SQL', 'SQLite'],
             href: 'projects/open-data-etl.html'
           },
           {
             title: 'Weather Data Pipeline',
+            domain: 'Data Engineering',
+            tags: ['API Integration', 'Automation'],
             level: 'Beginner',
-            status: 'Planned Project',
+            status: 'Planned',
             problem:
-              'Automates the scheduled collection, schema validation, and relational storage of public weather API observations so raw JSON responses become queryable historical tables.',
+              'A planned pipeline that automates the scheduled collection, schema validation, and relational storage of public weather API observations so raw JSON responses become queryable historical tables.',
             techStack: ['Python', 'SQL', 'PostgreSQL', 'REST APIs'],
             href: 'projects/weather-data-pipeline.html'
           },
           {
             title: 'London Transport Data Analysis',
+            domain: 'Data Engineering',
+            tags: ['Data Analysis', 'Cloud Warehousing'],
             level: 'Beginner',
-            status: 'Planned Project',
+            status: 'Planned',
             problem:
-              'Analyzes over a decade of Transport for London journey data using SQL to identify popular transport methods, explore usage patterns, and investigate changes in network activity.',
+              'A planned SQL-based analysis of over a decade of Transport for London journey data, intended to identify popular transport methods, explore usage patterns, and investigate changes in network activity.',
             techStack: ['SQL', 'Data Warehousing', 'Snowflake'],
             href: 'projects/london-transport-data-analysis.html'
           },
           {
             title: 'Bank Marketing Data Cleaning',
+            domain: 'Data Engineering',
+            tags: ['Data Wrangling', 'Formatting'],
             level: 'Intermediate',
-            status: 'Completed Project',
+            status: 'Completed',
             problem:
               'Cleans and standardizes bank marketing campaign data by splitting datasets, correcting values, converting data types, and exporting structured CSV files ready for downstream database ingestion.',
             techStack: ['Python', 'pandas', 'Data Cleaning', 'CSV'],
-            href: 'https://www.datacamp.com/datalab/w/50fe93e5-0982-4d20-ba97-ffd96fcd3259/edit'
+            href: 'projects/bank-marketing-data-cleaning.html'
           },
           {
             title: 'Retail Sales Data Pipeline',
+            domain: 'Data Engineering',
+            tags: ['Data Integration', 'Data Analysis'],
             level: 'Intermediate',
-            status: 'Planned Project',
+            status: 'In Progress',
             problem:
-              'Consolidates multi-source retail transaction logs and product catalogs into a star-schema warehouse model while catching duplicate orders and schema drift.',
-            techStack: ['Python', 'SQL', 'PostgreSQL', 'Data Modeling'],
-            href: 'projects/retail-data-pipeline.html'
+              'Integrates a PostgreSQL grocery_sales table with an extra_data.parquet data source to perform retail sales and supply/demand analysis via monthly sales aggregation.',
+            techStack: ['Python', 'SQL', 'PostgreSQL', 'Parquet'],
+            href: ''
           },
           {
             title: 'Airflow & Snowflake ETL Pipeline',
+            domain: 'Data Engineering',
+            tags: ['Data Orchestration', 'Cloud Data Platforms'],
             level: 'Advanced',
-            status: 'Planned Project',
+            status: 'Planned',
             problem:
-              'Orchestrates an end-to-end scheduled data pipeline with task dependency management, automated data quality gates, and analytical warehouse loading in Snowflake.',
+              'A planned pipeline that orchestrates an end-to-end scheduled data pipeline with task dependency management, automated data quality gates, and analytical warehouse loading in Snowflake.',
             techStack: ['Apache Airflow', 'Snowflake', 'Python', 'SQL'],
             href: 'projects/airflow-snowflake-etl.html'
-          }
+          },
+          // --- Cybersecurity ---
+          {
+            title: 'SSH Brute Force Detection Lab',
+            domain: 'Cybersecurity',
+            tags: ['Detection', 'SIEM'],
+            level: 'Intermediate',
+            status: 'Completed',
+            problem: 'A lab demonstrating SSH brute-force detection using Hydra on Kali Linux, authentication logs, and the Wazuh SIEM dashboard. Supported by five screenshots, one documented detection rule, and mapped to MITRE ATT&CK technique T1110.',
+            techStack: ['Kali Linux', 'Hydra', 'Wazuh', 'MITRE ATT&CK'],
+            href: 'projects/ssh-brute-force-detection.html',
+          },
+          {
+            title: 'Malware Sandboxing Lab',
+            domain: 'Cybersecurity',
+            tags: ['VirtualBox', 'Malware Analysis', 'IOCs', 'Sandboxing'],
+            level: 'Intermediate',
+            status: 'In Progress',
+            problem: 'Developing an isolated virtual machine environment using VirtualBox to safely execute and observe malware behaviour. The work focuses on analysing process trees, network artifacts, and indicators of compromise (IOCs).',
+            techStack: ['VirtualBox', 'Malware Analysis', 'Network Analysis'],
+            href: ''
+          },
+          {
+            title: 'Wazuh SIEM Home Lab',
+            domain: 'Cybersecurity',
+            tags: ['Wazuh', 'SIEM', 'Detection Rules', 'Log Analysis'],
+            level: 'Beginner',
+            status: 'Planned',
+            problem: 'A planned Wazuh SIEM home lab focused on simulating SOC analyst workflows through agent configuration, custom detection rules, alert ingestion, log correlation, and investigation of simulated security events.',
+            techStack: ['Wazuh', 'SIEM', 'Log Analysis', 'Detection Engineering'],
+            href: ''
+          },
+          // --- Systems & Infrastructure ---
+          {
+            title: 'Active Directory Enterprise Lab',
+            domain: 'Systems & Infrastructure',
+            tags: ['Administration', 'Directory Services'],
+            level: 'Intermediate',
+            status: 'Completed',
+            problem: 'A Windows Server and Ubuntu lab implementing Active Directory Domain Services, DNS, organizational units, users, groups, and Group Policy Objects. Supported by 14 screenshots documenting the environment and validation.',
+            techStack: ['Windows Server', 'Ubuntu', 'Active Directory Domain Services', 'DNS', 'Group Policy'],
+            href: 'projects/active-directory-enterprise-lab.html',
+          },
+          {
+            title: 'Scripting & Automation Hub',
+            domain: 'Systems & Infrastructure',
+            tags: ['Automation', 'Scripting'],
+            level: 'Beginner',
+            status: 'In Progress',
+            problem: 'Developing a collection of practical scripts for backup automation, system monitoring, security hardening, and routine operational tasks.',
+            techStack: ['Bash', 'Python', 'PowerShell', 'Linux', 'cron'],
+            href: ''
+          },
+          {
+            title: 'Network Simulation Lab',
+            domain: 'Systems & Infrastructure',
+            tags: ['GNS3', 'Packet Tracer', 'Subnetting', 'Troubleshooting'],
+            level: 'Beginner',
+            status: 'Planned',
+            problem: 'A planned networking lab involving the design and testing of multi-topology networks using Cisco Packet Tracer and GNS3, with a focus on subnetting, protocol configuration, and structured fault isolation.',
+            techStack: ['Cisco Packet Tracer', 'GNS3', 'Networking', 'FLSM/VLSM'],
+            href: ''
+          },
+          // --- Software Engineering ---
+          {
+            title: 'LeetCode Solutions',
+            domain: 'Software Engineering',
+            tags: ['Python', 'Algorithms', 'Data Structures', 'Problem Solving'],
+            level: 'Beginner',
+            status: 'In Progress',
+            problem: 'A growing collection of solutions to algorithmic and data-structure problems, implemented primarily in Python. The repository documents problem-solving approaches and iterative improvements in code clarity, correctness, and efficiency.',
+            techStack: ['Python', 'Algorithms', 'Data Structures'],
+            href: 'https://github.com/b-o-m-pixel/leetcode'
+          },
         ]
       },
       about: {
         id: 'about',
         label: 'ABOUT',
         heading: 'An engineer in development.',
-        intro:
-          'I approach engineering with curiosity, structured problem-solving, and an interest in how data moves from raw sources into well-organized storage.',
-        columns: [
-          {
-            kicker: 'Engineering Mindset',
-            title: 'Learning From the Ground Up',
-            copy:
-              'Rather than rushing past fundamentals, I focus on understanding why data becomes inconsistent, how table schemas shape downstream queries, and how clear logic makes data workflows easier to maintain.'
-          },
-          {
-            kicker: 'Practical Approach',
-            title: 'Step-by-Step Problem Solving',
-            copy:
-              'When working through a technical problem, I break tasks into small, testable steps. I am steadily building practical competence in writing readable SQL and Python while learning the operating system and infrastructure basics that support data work.'
-          }
-        ]
+         intro:
+          'I approach engineering with curiosity, structured problem-solving, and an interest in how different parts of a system fit together.',
+         columns: [
+           {
+            kicker: 'Connecting the Domains',
+            title: 'Broader Systems View',
+             copy:
+              'While Data Engineering is my current primary focus, I maintain active broader interests in software, systems and infrastructure, and cybersecurity. My goal is to understand not just how to build an isolated component, but how code, data, networks, and security integrate reliably.'
+           },
+           {
+             kicker: 'Practical Approach',
+            title: 'Building Solid Foundations',
+             copy:
+              'I prefer learning through practical, hands-on projects rather than rushing past the fundamentals. I am steadily building my technical foundations step-by-step, focusing on how real systems are designed, built, and operated.'
+           }
+         ]
       },
-      focus: {
-        id: 'focus',
-        label: 'CURRENT DIRECTION',
-        heading: 'What I’m building toward',
-        intro:
-          'My learning centers on Data Engineering as my primary focus, supported by developing skills in databases, programming, and systems fundamentals.',
-        primaryDomain: {
-          id: 'focus-data-engineering',
+      skills: {
+        id: 'skills',
+        label: 'SKILLS & DIRECTION',
+        heading: 'Technical toolkit and current focus',
+        intro: 'My technical foundation spans data, software, infrastructure, and security, with Data Engineering as my active primary focus.',
+        primaryFocus: {
+          id: 'skills-primary',
           kicker: 'Primary Focus',
           title: 'Data Engineering',
-          description:
-            'Actively studying how raw data is ingested, cleaned, structured, and moved through repeatable pipeline stages so that downstream datasets remain accurate and usable.',
+          description: 'Actively developing practical skills in preparing, integrating, and structuring data through repeatable workflows, with an emphasis on data quality and reliable downstream use.',
           topics: [
-            { label: 'Data Ingestion & ETL/ELT', note: 'Core pipeline stages & workflow structure' },
-            { label: 'Data Cleaning & Quality', note: 'Validation checks, formatting & consistency' },
-            { label: 'Data Modeling Basics', note: 'Structuring tables for clarity and querying' }
+            { label: 'SQL & Relational Databases', note: 'PostgreSQL, SQLite, joins and aggregations.' },
+            { label: 'Python for Data Engineering', note: 'Python, pandas, data transformation and file processing.' },
+            { label: 'ETL/ELT Fundamentals', note: 'Extraction, transformation and loading workflows.' },
+            { label: 'Data Cleaning & Quality', note: 'Standardization, data types and consistency.' },
+            { label: 'Data Integration & Modeling', note: 'Combining data sources and structuring relational datasets.' }
           ]
         },
-        supportingDomains: [
+        skillAreas: [
           {
-            id: 'focus-databases-transformation',
-            kicker: 'Supporting Skill Area',
-            title: 'SQL, Databases & Data Transformation',
-            description:
-              'Developing practical fluency in querying relational databases, joining and aggregating records, and reshaping structured and semi-structured data.',
+            id: 'skills-software-db',
+            kicker: 'Technical Toolkit',
+            title: 'Software, Databases & Scripting',
+            description: 'Developing practical fluency in programming, scripting, database interaction, and problem-solving through coursework and hands-on exercises.',
             topics: [
-              { label: 'SQL & Relational Databases', note: 'Queries, joins, aggregations & schema basics' },
-              { label: 'Data Transformation', note: 'Cleaning and restructuring raw records' }
+              { label: 'Programming', note: 'Python and Java fundamentals.' },
+              { label: 'Algorithms & Data Structures', note: 'Problem-solving and LeetCode practice.' },
+              { label: 'Scripting & Automation', note: 'Bash and Python scripting.' },
+              { label: 'Version Control', note: 'Git, repositories and version history.' }
             ]
           },
           {
-            id: 'focus-python-systems',
-            kicker: 'Supporting Skill Area',
-            title: 'Python, Automation & Systems Foundations',
-            description:
-              'Building foundational skills in Python scripting, Linux command-line workflows, version control, and the cloud and distributed concepts used in data infrastructure.',
+            id: 'skills-systems-sec',
+            kicker: 'Technical Toolkit',
+            title: 'Systems, Infrastructure & Security',
+            description: 'Building practical foundations in configuring, operating, and monitoring computing environments, with an interest in reliable and secure systems.',
             topics: [
-              { label: 'Python & Scripting', note: 'Data handling, file processing & automation' },
-              { label: 'Systems & Cloud Basics', note: 'Linux CLI, Git & core infrastructure concepts' }
+              { label: 'Linux & Windows Administration', note: 'Ubuntu, Windows Server and command-line workflows.' },
+              { label: 'Identity & Infrastructure', note: 'Active Directory, DNS and Group Policy.' },
+              { label: 'Networking & Virtualization', note: 'Network fundamentals, VirtualBox and isolated lab environments.' },
+              { label: 'Security Monitoring', note: 'SSH authentication logs, Wazuh fundamentals and alert investigation.' }
             ]
           }
         ]
@@ -221,15 +311,15 @@
       credentials: {
         id: 'credentials',
         label: 'BACKGROUND',
-        heading: 'Education & Certifications',
+        heading: 'Education, Certifications & Learning',
         intro:
-          'Academic grounding in computer science alongside structured certifications and technical coursework in data engineering.',
+          'Academic grounding in computer science, complemented by earned data engineering certifications and ongoing technical development.',
         education: [
           {
             degree: 'Bachelor of Science in Computer Science (Undergraduate Studies)',
             institution: 'University of Kigali · Kigali, Rwanda',
-            status: 'In Progress — Final Year Undergraduate',
-            timeline: 'Expected Graduation Year 2026',
+            status: 'Degree pending formal award',
+            timeline: 'Graduation Year: 2026',
             summary:
               'Undergraduate computer science program covering programming fundamentals, relational database systems, software architecture, and computer networks.'
           }
@@ -244,7 +334,8 @@
             credentialId: '',
             description:
               'Demonstrates foundational proficiency in relational database schema design, complex querying, and managing data workflows using SQL.',
-            verificationUrl: 'certifications/data_engineer/associate-data-engineer-in-sql.pdf'
+            documentPath: 'certifications/data_engineer/associate-data-engineer-in-sql.pdf',
+            verificationUrl: null
           },
           {
             id: 'cert-datacamp-python',
@@ -255,7 +346,63 @@
             credentialId: '',
             description:
               'Covers data processing, automation, and building reliable ETL pipelines using Python and its data engineering ecosystem.',
-            verificationUrl: 'certifications/data_engineer/data_engineer_in_python_certificate.pdf'
+            documentPath: 'certifications/data_engineer/data_engineer_in_python_certificate.pdf',
+            verificationUrl: null
+          },
+          {
+            id: 'cert-letsdefend-soc',
+            name: 'SOC Analyst Learning Path',
+            issuer: 'LetsDefend',
+            status: 'Completed',
+            dateEarned: 'May 07, 2026',
+            credentialId: '',
+            description: 'A completed practical learning path focused on Security Operations Center (SOC) analyst workflows and skills.',
+            documentPath: 'certifications/letsdefend/soc_analyst_learning_path.png',
+            verificationUrl: null
+          },
+          {
+            id: 'cert-letsdefend-malware',
+            name: 'Malware Analysis Skill Path',
+            issuer: 'LetsDefend',
+            status: 'Completed',
+            dateEarned: 'May 08, 2026',
+            credentialId: '',
+            description: 'A completed technical training path covering the fundamentals of malware analysis and investigation.',
+            documentPath: 'certifications/letsdefend/malware_analysis_skill_path.png',
+            verificationUrl: null
+          },
+          {
+            id: 'cert-letsdefend-dfir',
+            name: 'DFIR Learning Path',
+            issuer: 'LetsDefend',
+            status: 'Completed',
+            dateEarned: 'May 15, 2026',
+            credentialId: '',
+            description: 'A completed training track dedicated to Digital Forensics and Incident Response (DFIR) methodologies.',
+            documentPath: 'certifications/letsdefend/dfir_path.png',
+            verificationUrl: null
+          },
+          {
+            id: 'cert-letsdefend-web',
+            name: 'Web Attack Detection & Analysis',
+            issuer: 'LetsDefend',
+            status: 'Completed',
+            dateEarned: 'September 02, 2025',
+            credentialId: '',
+            description: 'A completed technical path focused on identifying, analyzing, and responding to web-based attacks.',
+            documentPath: 'certifications/letsdefend/web_attack_detection_analysis_path.png',
+            verificationUrl: null
+          },
+          {
+            id: 'cert-letsdefend-students',
+            name: 'Cybersecurity for Students',
+            issuer: 'LetsDefend',
+            status: 'Completed',
+            dateEarned: 'July 22, 2025',
+            credentialId: '',
+            description: 'A completed foundational training certificate covering core cybersecurity principles and practices.',
+            documentPath: 'certifications/letsdefend/cybersecurity_for_students_path.png',
+            verificationUrl: null
           }
         ],
         courses: [
@@ -270,6 +417,18 @@
             provider: 'Academic & Self-Directed Technical Training',
             status: 'Ongoing',
             focus: 'Schema design, data normalization, file parsing, and Linux command-line automation'
+          },
+          {
+            title: 'Certified in Cybersecurity (CC)',
+            provider: 'ISC2',
+            status: 'In Progress',
+            focus: 'Preparation for the ISC2 Certified in Cybersecurity credential.'
+          },
+          {
+            title: 'SOC Analyst Path',
+            provider: 'Hack The Box',
+            status: 'In Progress',
+            focus: 'Ongoing SOC analyst learning and practical skill development.'
           }
         ]
       },
@@ -491,6 +650,60 @@
         </section>
       `;
     }
+    
+    function getProjectCardHTML(project) {
+      const badgeClass = {
+        'Completed': 'completed-badge',
+        'In Progress': 'in-progress-badge',
+        'Planned': 'planned-badge'
+      }[project.status] || 'unknown-badge';
+
+      // Projects are only eligible to have clickable links if they are beyond the Planned phase
+      const isLinkableStatus = project.status === 'Completed' || project.status === 'In Progress';
+      const isExternal = project.href && project.href.startsWith('http');
+      
+      let footerContent = '';
+      if (isLinkableStatus && project.href) {
+        const ariaLabel = isExternal 
+          ? (project.href.includes('datacamp.com') ? `View project details for ${project.title}, opens externally on DataCamp` : `View project details for ${project.title}, opens externally`)
+          : `View project details for ${project.title}`;
+          
+        const noteLabel = isExternal ? 'External Project Link' : 'Case Study &amp; Architecture';
+
+        footerContent = `
+          <span class="editorial-item-note">${noteLabel}</span>
+          <a href="${project.href}" class="project-card-link" aria-label="${ariaLabel}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+            <span>View project</span>
+            <span aria-hidden="true">${isExternal ? '↗' : '→'}</span>
+          </a>
+        `;
+      } else {
+        const nonClickableLabel = project.status === 'Planned' ? 'Coming Soon' : 'Documentation in Progress';
+        footerContent = `
+          <span class="editorial-item-note">Case Study &amp; Architecture</span>
+          <span class="project-coming-soon">${nonClickableLabel}</span>
+        `;
+      }
+
+      return `
+        <article class="project-card">
+          <div>
+            <div class="slot-meta-row">
+              <span class="level-badge">Level: ${project.level}</span>
+              <span class="${badgeClass}">${project.status}</span>
+            </div>
+            <h3 class="heading-card">${project.title}</h3>
+            <p class="slot-copy">${project.problem}</p>
+            <ul class="tech-badge-list" aria-label="${project.title} technology stack">
+              ${project.techStack.map((tech) => `<li class="tech-badge">${tech}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="project-card-footer">
+            ${footerContent}
+          </div>
+        </article>
+      `;
+    }
 
     function ProjectsSection(projects) {
       return `
@@ -501,41 +714,30 @@
               <h2 id="projects-heading" class="heading-section">${projects.heading}</h2>
               <p class="section-intro">${projects.intro}</p>
             </div>
+            
+            <div class="project-filters-bar">
+              <div class="filter-controls">
+                <div class="filter-group">
+                  <label for="filter-domain" class="filter-label">Domain</label>
+                  <select id="filter-domain" class="filter-select">
+                    <!-- Populated dynamically by bindProjectFilters() -->
+                  </select>
+                </div>
+                <div class="filter-group">
+                  <label for="filter-status" class="filter-label">Status</label>
+                  <select id="filter-status" class="filter-select">
+                    <option value="all">All statuses</option>
+                    <option value="Completed">Completed</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Planned">Planned</option>
+                  </select>
+                </div>
+              </div>
+              <div id="filter-count" class="filter-count" aria-live="polite"></div>
+            </div>
 
-            <div class="grid-2-col" role="region" aria-label="Planned Data Engineering projects">
-              ${projects.items
-                .map(
-                  (project) => `
-                <article class="project-card">
-                  <div>
-                    <div class="slot-meta-row">
-                      <span class="level-badge">Level: ${project.level}</span>
-                      <span class="planned-badge">${project.status}</span>
-                    </div>
-                    <h3 class="heading-card">${project.title}</h3>
-                    <p class="slot-copy">${project.problem}</p>
-                    <ul class="tech-badge-list" aria-label="${project.title} technology stack">
-                      ${project.techStack
-                        .map((tech) => `<li class="tech-badge">${tech}</li>`)
-                        .join('')}
-                    </ul>
-                  </div>
-
-                  <div class="project-card-footer">
-                    <span class="editorial-item-note">Case Study &amp; Architecture</span>
-                    <a
-                      href="${project.href}"
-                      class="project-card-link"
-                      aria-label="View project details for ${project.title}"
-                    >
-                      <span>View project</span>
-                      <span aria-hidden="true">→</span>
-                    </a>
-                  </div>
-                </article>
-              `
-                )
-                .join('')}
+            <div class="grid-2-col" role="region" id="project-catalogue-grid" aria-label="Portfolio project catalogue">
+              <!-- Populated by bindProjectFilters() -->
             </div>
           </div>
         </section>
@@ -570,15 +772,15 @@
       `;
     }
 
-    function FocusSection(focus) {
-      const primary = focus.primaryDomain;
+    function SkillsSection(skills) {
+      const primary = skills.primaryFocus;
       return `
-        <section id="${focus.id}" class="portfolio-section" aria-labelledby="focus-heading">
+        <section id="${skills.id}" class="portfolio-section" aria-labelledby="skills-heading">
           <div class="site-container">
             <div class="section-header-bar">
-              <div class="eyebrow-label">${focus.label}</div>
-              <h2 id="focus-heading" class="heading-section">${focus.heading}</h2>
-              <p class="section-intro">${focus.intro}</p>
+              <div class="eyebrow-label">${skills.label}</div>
+              <h2 id="skills-heading" class="heading-section">${skills.heading}</h2>
+              <p class="section-intro">${skills.intro}</p>
             </div>
 
             <div class="focus-layout">
@@ -604,18 +806,18 @@
               </article>
 
               <div class="focus-supporting-stack">
-                ${focus.supportingDomains
+                ${skills.skillAreas
                   .map(
-                    (domain) => `
-                  <article id="${domain.id}" class="editorial-slot editorial-slot--quiet">
+                    (area) => `
+                  <article id="${area.id}" class="editorial-slot editorial-slot--quiet">
                     <div>
-                      <p class="slot-kicker">${domain.kicker}</p>
-                      <h3 class="heading-card">${domain.title}</h3>
-                      <p class="slot-copy">${domain.description}</p>
+                      <p class="slot-kicker">${area.kicker}</p>
+                      <h3 class="heading-card">${area.title}</h3>
+                      <p class="slot-copy">${area.description}</p>
                     </div>
 
-                    <ul class="editorial-divider-list" aria-label="${domain.title} developing skills">
-                      ${domain.topics
+                    <ul class="editorial-divider-list" aria-label="${area.title} skills">
+                      ${area.topics
                         .map(
                           (topic) => `
                         <li class="editorial-divider-item">
@@ -847,10 +1049,10 @@
             </div>
 
             <div class="footer-bottom">
-              <span>&copy; ${currentYear} ${config.brand.name}. All rights reserved.</span>
-              <span>Data Engineering Portfolio</span>
-            </div>
-          </div>
+               <span>&copy; ${currentYear} ${config.brand.name}. All rights reserved.</span>
+              <span>Engineering Portfolio</span>
+             </div>
+           </div>
         </footer>
       `;
     }
@@ -864,8 +1066,8 @@
         <main id="main-content" tabindex="-1">
           ${HeroSection(SITE_CONFIG.hero)}
           ${ProjectsSection(SITE_CONFIG.projects)}
+          ${SkillsSection(SITE_CONFIG.skills)}
           ${AboutSection(SITE_CONFIG.about)}
-          ${FocusSection(SITE_CONFIG.focus)}
           ${CredentialsSection(SITE_CONFIG.credentials)}
           ${NotesSection(SITE_CONFIG.notes)}
           ${ContactSection(SITE_CONFIG.contact)}
@@ -877,6 +1079,7 @@
       bindThemeToggles();
       bindMobileNavigation();
       bindScrollSpyNavigation();
+      bindProjectFilters();
       bindCertificationModal();
     }
 
@@ -1039,6 +1242,70 @@
 
       evaluateScrollPosition();
     }
+    
+    function bindProjectFilters() {
+      const domainSelect = document.getElementById('filter-domain');
+      const statusSelect = document.getElementById('filter-status');
+      const grid = document.getElementById('project-catalogue-grid');
+      const countEl = document.getElementById('filter-count');
+
+      if (!domainSelect || !statusSelect || !grid || !countEl) return;
+
+      // Dynamically extract unique domains
+      const uniqueDomains = [...new Set(SITE_CONFIG.projects.items.map(p => p.domain).filter(Boolean))];
+      
+      // Build options safely using DOM methods
+      const allOption = document.createElement('option');
+      allOption.value = 'all';
+      allOption.textContent = 'All domains';
+      
+      const optionElements = [allOption];
+
+      uniqueDomains.forEach(domain => {
+        const opt = document.createElement('option');
+        opt.value = domain;
+        opt.textContent = domain;
+        optionElements.push(opt);
+      });
+
+      // Inject the built options into the select element
+      domainSelect.replaceChildren(...optionElements);
+
+      function renderFilteredProjects() {
+        const domainVal = domainSelect.value;
+        const statusVal = statusSelect.value;
+
+        const filtered = SITE_CONFIG.projects.items.filter((p) => {
+          // Direct string comparison restored
+          const matchDomain = domainVal === 'all' || p.domain === domainVal;
+          const matchStatus = statusVal === 'all' || p.status === statusVal;
+          return matchDomain && matchStatus;
+        });
+
+        countEl.textContent = `Showing ${filtered.length} project${filtered.length === 1 ? '' : 's'}`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state-box">
+              <p>No projects match the selected criteria.</p>
+              <button type="button" class="btn-secondary js-reset-filters">Reset filters</button>
+            </div>`;
+          
+          grid.querySelector('.js-reset-filters').addEventListener('click', () => {
+            domainSelect.value = 'all';
+            statusSelect.value = 'all';
+            renderFilteredProjects();
+          });
+        } else {
+          grid.innerHTML = filtered.map(getProjectCardHTML).join('');
+        }
+      }
+
+      domainSelect.addEventListener('change', renderFilteredProjects);
+      statusSelect.addEventListener('change', renderFilteredProjects);
+
+      renderFilteredProjects(); // Initial render
+    }
 
     function bindCertificationModal() {
       const backdrop = document.getElementById('certification-modal-backdrop');
@@ -1077,20 +1344,32 @@
 
         // Inject the document into the modal body
         const container = document.getElementById('cert-modal-document-container');
-        const docUrl = cert.verificationUrl || cert.imageUrl; // Prefer the PDF path, but support images
+        const docUrl = cert.documentPath; 
+        
+        let contentHtml = '';
 
         if (docUrl && docUrl.trim() !== '') {
           if (docUrl.toLowerCase().endsWith('.pdf')) {
-            container.innerHTML = `<iframe src="${docUrl}" title="${cert.name} Certificate" class="document-frame"></iframe>`;
+            contentHtml += `<iframe src="${docUrl}" title="${cert.name} Certificate" class="document-frame"></iframe>`;
           } else {
-            container.innerHTML = `<img src="${docUrl}" alt="${cert.name} Certificate" class="document-image" />`;
+            contentHtml += `<img src="${docUrl}" alt="${cert.name} Certificate" class="document-image" />`;
           }
         } else {
-          container.innerHTML = `
-            <div style="text-align:center; color:var(--text-secondary); font-family:var(--font-mono); font-size:var(--text-sm);">
+          contentHtml += `
+            <div style="text-align:center; color:var(--text-secondary); font-family:var(--font-mono); font-size:var(--text-sm); padding: 2rem;">
               Certificate document pending.
             </div>`;
         }
+
+        // External verification link 
+        if (cert.verificationUrl && cert.verificationUrl.trim() !== '') {
+          contentHtml += `
+            <div style="text-align:center; margin-top: 1rem;">
+               <a href="${cert.verificationUrl}" target="_blank" rel="noopener noreferrer" style="font-size: var(--text-sm); text-decoration: underline;">Verify Externally</a>
+            </div>`;
+        }
+
+        container.innerHTML = contentHtml;
 
         backdrop.removeAttribute('hidden');
         document.body.classList.add('modal-open');
@@ -1138,7 +1417,7 @@
 
         if (event.key === 'Tab') {
           const focusable = dialog.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            'button, [href], input, select, textarea, iframe, [tabindex]:not([tabindex="-1"])'
           );
           if (!focusable.length) return;
           const first = focusable[0];
