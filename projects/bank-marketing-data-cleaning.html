@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Marketing Data Cleaning — Bashar Mohamed Omar</title>
+  <meta name="description" content="A data cleaning exercise using Python and pandas within DataCamp DataLab." />
+  
+  <!-- Google Fonts: Manrope (Headings), Inter (Body), JetBrains Mono (Technical Metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Shared Portfolio Stylesheet -->
+  <link rel="stylesheet" href="../styles.css" />
+
+  <script>
+    (function initializeThemeBeforePaint() {
+      try {
+        var STORAGE_KEY = 'portfolio-theme';
+        var savedTheme = localStorage.getItem(STORAGE_KEY);
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : prefersDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.style.colorScheme = resolvedTheme;
+      } catch (err) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header id="site-header" class="site-header">
+    <div class="site-container header-inner">
+      <a href="../index.html#hero" class="brand-wordmark" aria-label="Bashar Mohamed Omar — Engineering Portfolio — Home">
+        <span class="brand-indicator" aria-hidden="true"></span>
+        <span>Bashar Mohamed Omar</span>
+        <span class="brand-tag">Engineering Portfolio</span>
+      </a>
+
+      <div class="desktop-nav-wrapper">
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="../index.html#hero" class="nav-link">Home</a></li>
+            <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+            <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="../index.html#about" class="nav-link">About</a></li>
+            <li><a href="../index.html#credentials" class="nav-link">Credentials</a></li>
+            <li><a href="../index.html#notes" class="nav-link">Learning</a></li>
+            <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <button type="button" class="theme-toggle-btn js-theme-toggle" data-theme-toggle aria-label="Toggle light or dark color theme">
+          <span class="js-theme-icon" aria-hidden="true" style="display:inline-flex;align-items:center;"></span>
+          <span class="js-theme-label">Theme</span>
+        </button>
+      </div>
+
+      <div class="mobile-controls">
+        <button type="button" class="theme-toggle-btn js-theme-toggle" data-theme-toggle aria-label="Toggle light or dark color theme">
+          <span class="js-theme-icon" aria-hidden="true" style="display:inline-flex;align-items:center;"></span>
+          <span class="js-theme-label">Theme</span>
+        </button>
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-navigation-panel" aria-label="Open navigation menu">
+          <svg id="mobile-menu-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span id="mobile-menu-label">Menu</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-navigation-panel" class="mobile-nav-panel" role="region" aria-label="Mobile menu">
+      <div class="site-container">
+        <nav aria-label="Mobile primary navigation">
+          <ul class="mobile-nav-list">
+            <li><a href="../index.html#hero" class="mobile-nav-link js-mobile-nav-link"><span>Home</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+            <li><a href="../index.html#projects" class="mobile-nav-link js-mobile-nav-link"><span>Projects</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+            <li><a href="../index.html#skills" class="mobile-nav-link js-mobile-nav-link"><span>Skills</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+            <li><a href="../index.html#about" class="mobile-nav-link js-mobile-nav-link"><span>About</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+            <li><a href="../index.html#credentials" class="mobile-nav-link js-mobile-nav-link"><span>Credentials</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+            <li><a href="../index.html#notes" class="mobile-nav-link js-mobile-nav-link"><span>Learning</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+            <li><a href="../index.html#contact" class="mobile-nav-link js-mobile-nav-link"><span>Contact</span><span aria-hidden="true" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary);">→</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="project-page-hero">
+      <div class="site-container">
+        <a href="../index.html#projects" class="back-link">
+          <span aria-hidden="true">←</span>
+          <span>Back to Projects</span>
+        </a>
+        
+        <div class="project-meta-strip">
+          <span class="level-badge">Intermediate</span>
+          <span class="completed-badge">Completed</span>
+        </div>
+        
+        <h1 class="heading-page">Bank Marketing Data Cleaning</h1>
+        <p class="lead-paragraph">
+          Cleans and standardizes bank marketing campaign data by splitting datasets, correcting values, converting data types, and exporting structured CSV files ready for downstream database ingestion.
+        </p>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="site-container">
+        <div class="project-detail-grid">
+          
+          <aside>
+            <div class="project-aside-group">
+              <h2 class="heading-card project-aside-heading">Domain</h2>
+              <p class="slot-copy project-aside-value">Data Engineering</p>
+            </div>
+            <div>
+              <h2 class="heading-card project-aside-heading">Tools &amp; Technologies</h2>
+              <ul class="tech-badge-list" aria-label="Technology stack">
+                <li class="tech-badge">Python</li>
+                <li class="tech-badge">pandas</li>
+                <li class="tech-badge">DataCamp DataLab</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="project-detail-content">
+            <h2 class="heading-card project-section-heading">Problem &amp; Objective</h2>
+            <p>The project involved cleaning a DataCamp-provided bank marketing dataset to prepare it for downstream analysis. The primary objective was to transform the raw data into a consistent, structured format without asserting unconfirmed details about the original campaign data.</p>
+
+            <h2 class="heading-card project-section-heading project-section-heading--spaced">Scope &amp; Approach</h2>
+            <p>This was a dedicated data-cleaning exercise executed using Python and pandas within the DataCamp DataLab environment.</p>
+
+            <h2 class="heading-card project-section-heading project-section-heading--spaced">Implementation Details</h2>
+            <div class="placeholder-callout">
+              <span class="placeholder-callout-tag">Pending Review</span>
+              <p>Specific data transformations and pandas operations will be documented here after the original notebook is reviewed.</p>
+            </div>
+
+            <h2 class="heading-card project-section-heading project-section-heading--spaced">Results &amp; Evaluation</h2>
+            <div class="placeholder-callout">
+              <span class="placeholder-callout-tag">Pending Review</span>
+              <p>Measured results, final row counts, and data quality metrics have not yet been documented.</p>
+            </div>
+
+            <h2 class="heading-card project-section-heading project-section-heading--spaced">Challenges &amp; Lessons Learned</h2>
+            <p>A key focus during this project was learning to identify and apply the appropriate pandas functions to manipulate and clean structured data effectively, relying on documentation and practical application to resolve inconsistencies.</p>
+
+            <h2 class="heading-card project-section-heading project-section-heading--spaced">Project Resources</h2>
+            <div class="contact-links-grid contact-links-grid--single">
+              <a href="https://www.datacamp.com/datalab/w/50fe93e5-0982-4d20-ba97-ffd96fcd3259/edit" target="_blank" rel="noopener noreferrer" class="contact-method-card">
+                <span class="contact-icon-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </span>
+                <div>
+                  <h3 class="contact-method-label">DataCamp DataLab Workspace</h3>
+                  <p class="contact-method-value">View the external notebook ↗</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer">
+    <div class="site-container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html#hero" class="brand-wordmark">
+            <span class="brand-indicator" aria-hidden="true"></span>
+            <span>Bashar Mohamed Omar</span>
+          </a>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);max-width:46ch;margin:0.65rem 0 0 0;">
+            Personal engineering portfolio.
+          </p>
+        </div>
+        <nav aria-label="Footer quick links" class="footer-links">
+          <a href="../index.html#hero" class="nav-link" style="padding:2px 0;">Home</a>
+          <a href="../index.html#projects" class="nav-link" style="padding:2px 0;">Projects</a>
+          <a href="../index.html#skills" class="nav-link" style="padding:2px 0;">Skills</a>
+          <a href="../index.html#about" class="nav-link" style="padding:2px 0;">About</a>
+          <a href="../index.html#credentials" class="nav-link" style="padding:2px 0;">Credentials</a>
+          <a href="../index.html#contact" class="nav-link" style="padding:2px 0;">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+         <span>&copy; <script>document.write(new Date().getFullYear())</script> Bashar Mohamed Omar. All rights reserved.</span>
+         <span>Engineering Portfolio</span>
+       </div>
+     </div>
+  </footer>
+
+  <script>
+    function getThemeIconSvg(theme) {
+      if (theme === 'dark') {
+        return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      }
+      return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+    }
+
+    function bindThemeToggles() {
+      const toggleButtons = document.querySelectorAll('[data-theme-toggle]');
+      function applyTheme(newTheme, persist) {
+        document.documentElement.setAttribute('data-theme', newTheme);
+        document.documentElement.style.colorScheme = newTheme;
+        if (persist) {
+          try { localStorage.setItem('portfolio-theme', newTheme); } catch (e) {}
+        }
+        const isDark = newTheme === 'dark';
+        toggleButtons.forEach((btn) => {
+          btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+          btn.setAttribute('aria-label', 'Switch color theme. Current theme is ' + (isDark ? 'dark' : 'light') + '.');
+          const iconSpan = btn.querySelector('.js-theme-icon');
+          const labelSpan = btn.querySelector('.js-theme-label');
+          if (iconSpan) iconSpan.innerHTML = getThemeIconSvg(newTheme);
+          if (labelSpan) labelSpan.textContent = isDark ? 'Dark' : 'Light';
+        });
+      }
+      
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      applyTheme(current, false);
+
+      toggleButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          applyTheme(cur === 'dark' ? 'light' : 'dark', true);
+        });
+      });
+    }
+
+    function bindMobileNavigation() {
+      const menuBtn = document.getElementById('mobile-menu-toggle');
+      const menuPanel = document.getElementById('mobile-navigation-panel');
+      const menuLabel = document.getElementById('mobile-menu-label');
+
+      if (!menuBtn || !menuPanel) return;
+
+      function setMenuOpen(isOpen) {
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        if (menuLabel) menuLabel.textContent = isOpen ? 'Close' : 'Menu';
+        menuPanel.classList.toggle('is-open', isOpen);
+      }
+
+      menuBtn.addEventListener('click', () => {
+        setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      bindThemeToggles();
+      bindMobileNavigation();
+    });
+  </script>
+</body>
+</html>
